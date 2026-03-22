@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earthy | Sistema de Reservas</title>
+    <!-- Aquí conectaremos nuestro CSS más adelante -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <header>
+            <h1>EARTHY</h1>
+            <p>Pop-Up Exclusivo | Abril 2026</p>
+            <div class="indicador-capacidad">
+                Lugares disponibles: <span id="lugares-restantes">20</span> / 20
+            </div>
+            <!-- Botón discreto para el staff -->
+            <button type="button" id="btn-admin" style="background: transparent; color: var(--color-texto); font-size: 0.8rem; letter-spacing: 0; box-shadow: none; width: auto; padding: 0.5rem; margin-top: 10px;">Acceso Staff</button>
+        </header>
+
+        <section class="tarjeta-reserva">
+            <form id="formulario-reserva">
+                
+                <div class="grupo-input">
+                    <label for="nombre">Nombre de la reserva:</label>
+                    <input type="text" id="nombre" required placeholder="Ej. Familia Rodríguez">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="fecha">Fecha del Pop-Up:</label>
+                    <select id="fecha" required>
+                        <option value="" disabled selected>Selecciona un día</option>
+                        <option value="2026-04-04">Sábado 04 de Abril</option>
+                        <option value="2026-04-18">Sábado 18 de Abril</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="hora">Horario de llegada:</label>
+                    <select id="hora" required>
+                        <option value="" disabled selected>Escalonamiento de cocina</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="pax">Número de personas (Pax):</label>
+                    <input type="number" id="pax" min="1" max="20" required placeholder="1">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="tipo-cliente">Perfil del cliente:</label>
+                    <select id="tipo-cliente" required>
+                        <option value="" disabled selected>Selecciona el perfil</option>
+                        <option value="Residente">Residente</option>
+                        <option value="Huésped">Huésped</option>
+                        <option value="Externo">Cliente Externo</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="alergias">Alergias o Restricciones (Opcional):</label>
+                    <textarea id="alergias" rows="2" placeholder="Ej. Intolerancia al gluten, alergia a nueces..."></textarea>
+                </div>
+
+                <button type="submit" id="btn-reservar">Confirmar Reserva</button>
+            </form>
+        </section>
+
+        <!-- Aquí imprimiremos la lista de reservas confirmadas para el Chef -->
+        <section class="panel-administracion">
+            <h2>Lista de Comensales Confirmados</h2>
+            <ul id="lista-reservas">
+                <!-- Los <li> se inyectarán aquí con JavaScript -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Aquí conectamos nuestro motor lógico -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* style.css */
+
+:root {
+    --color-fondo: #F7F5F0; /* Tono arena muy claro */
+    --color-texto: #2C2A29; /* Gris carbón suave, menos agresivo que el negro puro */
+    --color-acento: #8A7965; /* Tono madera/chukum */
+    --color-borde: #DCD7C9;
+    --color-blanco: #FFFFFF;
+    --fuente-principal: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.contenedor-principal {
+    max-width: 600px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    font-weight: 300;
+    color: var(--color-acento);
+}
+
+header p {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-texto);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.indicador-capacidad {
+    display: inline-block;
+    background-color: var(--color-blanco);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.tarjeta-reserva, .panel-administracion {
+    background: var(--color-blanco);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    margin-bottom: 2rem;
+}
+
+.grupo-input {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-acento);
+}
+
+input, select, textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    background-color: var(--color-fondo);
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #6d5f4f;
+}
+
+/* Estilos para la lista dinámica que crearemos con JS */
+.panel-administracion h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+}
+
+#lista-reservas {
+    list-style: none;
+}
+
+.item-reserva {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px dashed var(--color-borde);
+    font-size: 0.95rem;
+}
+/* Ocultamos el panel por defecto por seguridad */
+.panel-administracion {
+    display: none; 
+}
+
+/* Esta clase se activará solo con la contraseña correcta */
+.panel-administracion.visible {
+    display: block;
+}
