@@ -124,3 +124,29 @@ if (btnAdmin) {
 }
 
 actualizarInterfaz();
+// Lógica de seguridad para el botón de Reiniciar Sistema
+const btnLimpiar = document.getElementById('btn-limpiar');
+if (btnLimpiar) {
+    btnLimpiar.addEventListener('click', () => {
+        // Alerta de seguridad para evitar borrados accidentales
+        const seguro = confirm("⚠️ ¿Estás seguro de que quieres borrar TODAS las reservas? Esto dejará el sistema en cero.");
+        
+        if (seguro) {
+            // 1. Borramos la memoria local del navegador
+            localStorage.removeItem('earthyReservas');
+            
+            // 2. Vaciamos los arreglos en tiempo real
+            estadoReservas.reservasPorFecha = {
+                "2026-04-04": [],
+                "2026-04-18": [] 
+            };
+            
+            // 3. Limpiamos el formulario y actualizamos la vista
+            formulario.reset();
+            spanLugares.textContent = estadoReservas.capacidadMaximaPorDia;
+            actualizarInterfaz();
+            
+            alert("🧹 El sistema ha sido reiniciado y está listo para empezar desde cero.");
+        }
+    });
+}
